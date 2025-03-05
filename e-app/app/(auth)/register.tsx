@@ -21,7 +21,7 @@ const register = () => {
   const router = useRouter();
   async function signUpNewUser() {
     const { data, error } = await supabase.auth.signUp({
-      name: name,
+    
       email: email,
       password: password,
     });

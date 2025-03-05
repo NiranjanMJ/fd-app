@@ -4,11 +4,29 @@ import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
-const Hotel = ({ item,menu }) => {
+
+export default function Hotel({ item,index,menu }) {
+
+
+  const imageMap = {
+    'a2b_image.jpg': require('@/assets/restaurnant/a2b_image.png'),
+    'sangeetha_image.jpg': require('@/assets/restaurnant/sangeetha_image.png'),
+    'zaitoon_image.jpg': require('@/assets/restaurnant/zaitoon_image.png'),
+    'junior_kuppanna.jpg': require('@/assets/restaurnant/junior_kuppanna.png'),
+    'murugan_idli.jpg': require('@/assets/restaurnant/murugan_idli.png'),
+    // Add all possible images
+  };
+
   const router = useRouter();
+  // menu = {};
+  console.log(menu)
   const menuItems = JSON.stringify(menu);
+  console.log("Menu Items")
+  console.log(menuItems)
   return (
+    
     <Pressable
+      key={index}
       onPress={() =>
         router.push({
           pathname: "/hotel",
@@ -37,8 +55,8 @@ const Hotel = ({ item,menu }) => {
           borderTopLeftRadius: 6,
           borderTopRightRadius: 6,
         }}
-        source={{ uri: item?.featured_image }}
-      />
+        source={imageMap[item?.featured_image]}
+        />
       <View
         style={{
           flexDirection: "row",
@@ -96,7 +114,7 @@ const Hotel = ({ item,menu }) => {
           <Text style={{ textAlign: "center", color: "white" }}>
             {item?.aggregate_rating}
           </Text>
-          <Ionicons name="ios-star" size={15} color="white" />
+          <Ionicons name="star" size={15} color="white" />
         </View>
       </View>
       <View
@@ -126,9 +144,10 @@ const Hotel = ({ item,menu }) => {
         </Text>
       </View>
     </Pressable>
+    
   );
+  
 };
 
-export default Hotel;
 
 const styles = StyleSheet.create({});

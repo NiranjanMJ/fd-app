@@ -13,6 +13,31 @@ import { AntDesign } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { supabase } from "@/supabase/supabase";
+import { Box } from "@/components/ui/box";
+
+const loginTest = () => {
+
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+
+
+  useEffect( () =>{
+
+    setEmail("n@n.com");
+    console.log(email);
+
+
+  }, [] );
+
+  return (
+  <SafeAreaView >
+  <Text className="text-7xl text-red-600">Hello </Text>
+
+  </SafeAreaView>
+  );
+  
+  
+}
 
 
 const login = () => {
@@ -54,11 +79,11 @@ const login = () => {
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}
     >
-      <View style={{ marginTop: 50 }}>
+      <Box style={{ marginTop: 50 }}>
         <Text style={{ fontSize: 20, textAlign: "center", fontWeight: "bold" }}>
-          Food App
+          Food App Delivery
         </Text>
-      </View>
+      </Box>
 
       <KeyboardAvoidingView>
         <View style={{ alignItems: "center" }}>
@@ -99,7 +124,7 @@ const login = () => {
               placeholder="enter your Email"
             />
           </View>
-
+          
           <View
             style={{
               flexDirection: "row",
@@ -142,7 +167,7 @@ const login = () => {
         onPress={signUpWithEmail}
           style={{
             width: 200,
-            backgroundColor: "#fd5c63",
+            backgroundColor: "#8b0000",
             borderRadius: 6,
             marginLeft: "auto",
             marginRight: "auto",
@@ -162,5 +187,6 @@ const login = () => {
 };
 
 export default login;
+// export default loginTest;
 
 const styles = StyleSheet.create({});
